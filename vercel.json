@@ -1,0 +1,26 @@
+{
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "installCommand": "npm install",
+  "framework": "nextjs",
+  "functions": {
+    "src/app/api/**/*.ts": {
+      "maxDuration": 300
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/src/app/api/$1"
+    }
+  ],
+  "env": {
+    "GEMINI_API_KEY": "@gemini-api-key",
+    "JWT_SECRET": "@jwt-secret",
+    "NEXTAUTH_SECRET": "@nextauth-secret",
+    "NEXTAUTH_URL": "@nextauth-url"
+  },
+  "regions": ["iad1"],
+  "cleanUrls": true,
+  "trailingSlash": false
+}
